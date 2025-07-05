@@ -1,0 +1,5 @@
+<div class="project-container">
+	<app-project-title></app-project-title>
+	<app-task-list (tasksUpdated)="refreshTasks()"></app-task-list>
+	<app-progress-bar [tasks]="(tasks$ | async) || []"></app-progress-bar>
+</div>
