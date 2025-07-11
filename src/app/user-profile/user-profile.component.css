@@ -1,0 +1,142 @@
+.user-profile {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.user-icon {
+  color: #333;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.user-icon:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.user-icon svg,
+.user-icon img {
+  width: 24px;
+  height: 24px;
+  filter: invert(0.2); /* Makes the icon dark gray to match the color scheme */
+}
+
+.user-tooltip {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 1000;
+  margin-top: 8px;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.tooltip-content {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  min-width: 200px;
+  white-space: nowrap;
+}
+
+.tooltip-content::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: 16px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid white;
+}
+
+.tooltip-content::after {
+  content: '';
+  position: absolute;
+  top: -9px;
+  right: 16px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #e0e0e0;
+}
+
+.user-info {
+  text-align: left;
+}
+
+.user-name {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.user-email {
+  color: #666;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.user-role {
+  color: #888;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  .user-icon {
+    color: #fff;
+  }
+  
+  .user-icon:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .user-icon svg,
+  .user-icon img {
+    filter: invert(1); /* Makes the icon white for dark theme */
+  }
+  
+  .tooltip-content {
+    background: #2a2a2a;
+    border-color: #404040;
+    color: #fff;
+  }
+  
+  .tooltip-content::before {
+    border-bottom-color: #2a2a2a;
+  }
+  
+  .tooltip-content::after {
+    border-bottom-color: #404040;
+  }
+  
+  .user-name {
+    color: #fff;
+  }
+  
+  .user-email {
+    color: #ccc;
+  }
+  
+  .user-role {
+    color: #999;
+  }
+}

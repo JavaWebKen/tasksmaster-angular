@@ -1,0 +1,28 @@
+<div class="user-profile" 
+     (mouseenter)="onMouseEnter()" 
+     (mouseleave)="onMouseLeave()">
+  
+  <!-- User Icon -->
+  <div class="user-icon">
+    <img src="assets/images/profile-user.svg" alt="User Profile" width="24" height="24">
+  </div>
+
+  <!-- User Details Tooltip -->
+  @if (showTooltip && currentUser) {
+    <div class="user-tooltip">
+      <div class="tooltip-content">
+        <div class="user-info">
+          <div class="user-name">
+            {{ currentUser.firstName }} {{ currentUser.lastName }}
+          </div>
+          <div class="user-email">
+            {{ currentUser.email }}
+          </div>
+          <div class="user-role">
+            Role: {{ currentUser.role }}
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</div>

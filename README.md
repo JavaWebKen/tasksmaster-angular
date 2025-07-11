@@ -1,5 +1,25 @@
 # TaskmasterFrontend
 
+## This app was originally built following this Pluralsight course:
+  
+[Building a Single Page App with Spring Boot and Angular](https://app.pluralsight.com/library/courses/spring-framework-angular-building-spa/table-of-contents)
+
+## Enhancements Made
+
+The following functionality was added beyond the original course material:
+
+- **Progress Bar** – Displays loading progress during operations.
+- **User Profile on Front End** – UI to show user-specific information.
+- **Minor Fixes** – Corrections to tutorial code that did not work as expected.
+
+## Future Updates
+- **Deploy to AWS ECR** – Create MariaDB instance and deploy to a Dev Environment.
+- **Production Ready** – Cleanup app so that it could be deployed to production, but intent is a Dev env.
+- **Unit Tests** – Add Jasime with Karma.
+- **Logging** – Add better Console logging.
+
+## Angular version 18.2
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.11.
 
 ## Development server

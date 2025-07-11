@@ -6,6 +6,15 @@ import { catchError, tap, throwError } from 'rxjs';
 
 type TokenResponse = {
   token: string;
+  user?: User;
+};
+
+export type User = {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  role: 'USER' | 'ADMIN' | 'MANAGER';
 };
 
 export type RegisterRequest = {
@@ -24,6 +33,7 @@ export class AuthService {
   private http = inject(HttpClient);
   private storageService = inject(StorageService);
   private router = inject(Router);
+  private currentUser: User | null = null;
   //constructor() { }
 
     login(email: string, password: string) {
@@ -32,6 +42,10 @@ export class AuthService {
       .pipe(
         tap((response) => {
           this.storageService.setToken(response.token);
+          if (response.user) {
+            this.currentUser = response.user;
+            this.storageService.setUser(response.user);
+          }
           this.router.navigate(['/']);
         }),
         catchError((error) => {
@@ -54,6 +68,10 @@ export class AuthService {
       .pipe(
         tap((response) => {
           this.storageService.setToken(response.token);
+          if (response.user) {
+            this.currentUser = response.user;
+            this.storageService.setUser(response.user);
+          }
           this.router.navigate(['/']);
         }),
         catchError((error) => {
@@ -66,11 +84,20 @@ export class AuthService {
 
   logout() {
     this.storageService.clearToken();
+    this.storageService.clearUser();
+    this.currentUser = null;
     this.router.navigate(['/login']);
   }
 
   isLoggedIn() {
     return Boolean(this.storageService.getToken());
+  }
+
+  getCurrentUser(): User | null {
+    if (!this.currentUser) {
+      this.currentUser = this.storageService.getUser();
+    }
+    return this.currentUser;
   }
 
 }

@@ -3,6 +3,9 @@
 	<ul>
 		@if(authService.isLoggedIn()) {
 		<li>
+			<app-user-profile></app-user-profile>
+		</li>
+		<li>
 			<a (click)="logout()" class="nav-link">Logout</a>
 		</li>
 		} @else {
