@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { TaskListComponent } from './task-list/task-list.component';
 import { ProjectTitleComponent } from './project-title/project-title.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
-import { TaskService } from '../task.service';
+import { TaskService } from '../services/task.service';
 import { Task } from '../task.model';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';

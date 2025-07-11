@@ -13,7 +13,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Task } from '../../task.model';
-import { TaskService } from '../../task.service';
+import { TaskService } from '../../services/task.service';
 
 @Component({
   selector: 'app-task-form',
